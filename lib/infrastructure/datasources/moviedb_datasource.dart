@@ -7,8 +7,14 @@ import 'package:movie_app/infrastructure/models/moviedb/moviedb_response.dart';
 import '../../domain/entities/movie.dart';
 import '../models/moviedb/movie_details.dart';
 
+
 class MoviedbDatasource extends MovieDatasource {
-  final dio = Dio(BaseOptions(
+   Dio? dioInitial;
+
+  MoviedbDatasource({ this.dioInitial}) : super();
+
+
+  late final dio = Dio(BaseOptions(
       baseUrl: 'https://api.themoviedb.org/3',
       queryParameters: {
         'api_key': Environment.theMovieDbKey,
@@ -33,6 +39,11 @@ class MoviedbDatasource extends MovieDatasource {
 
     return _jsonToMovies(response.data);
   }
+
+
+
+
+
 
   @override
   Future<List<Movie>> getPopular({int page = 1}) async {

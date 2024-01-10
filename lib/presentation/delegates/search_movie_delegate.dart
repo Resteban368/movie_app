@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import '../../config/helpers/human_formats.dart';
 import '../../domain/entities/movie.dart';
 import '../../infrastructure/datasources/moviedb_datasource.dart';
-import '../../infrastructure/repositories/movie_repository_impl.dart';
 
 class SearchMovieDelegate extends SearchDelegate<Movie?> {
   StreamController<List<Movie>> debounceMovies = StreamController.broadcast();
@@ -26,7 +25,8 @@ class SearchMovieDelegate extends SearchDelegate<Movie?> {
         return;
       }
 
-      final movies = await MoviedbDatasource().searchMovies(query);
+      final movies = await MoviedbDatasource(
+      ).searchMovies(query);
       debounceMovies.add(movies);
     });
   }

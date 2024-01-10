@@ -56,11 +56,6 @@ class MovieDetails {
 
     factory MovieDetails.fromJson(Map<String, dynamic> json) {
 
-        //cambiamos el formato de la fecha de releaseDate a un formato 2012-03-04
-        //para que no de error en el parseo
-        if (json["release_date"] != null && json["release_date"].toString().isNotEmpty) {
-          json["release_date"] = json["release_date"].toString().substring(0, 10);
-        }
 
       return MovieDetails(
         adult: json["adult"],
