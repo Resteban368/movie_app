@@ -76,21 +76,6 @@ void main() {
               DioError>()), // Puedes personalizar el tipo de excepción esperada
         );
       });
-// test('handles DioError on network errors', () async {
-//   // Simula un tiempo de espera agotado
-//   when(mockMoviedbDatasource.getNowPlaying())
-//       .thenThrow(DioError(
-//         requestOptions: RequestOptions(path: ''),
-//         type: DioErrorType.connectionTimeout,
-//         error: 'Connection timeout',
-//       ));
-
-//   // Ejecuta la función y espera que lance una excepción DioError de tiempo de espera agotado
-//   expect(() async => await datasource.getNowPlaying(),
-//       throwsA(isA<DioError>().having((e) => e.type, 'type', DioErrorType.connectionTimeout)));
-// });
-
-
 
     });
 
